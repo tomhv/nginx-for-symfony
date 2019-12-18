@@ -16,4 +16,4 @@ jobs:
     - name: Build the Docker image
       run: |
         DOCKER_IMAGE_VERSION=`echo ${GITHUB_REF/refs\/tags\//} | cut -b 2-`
-        docker build . --build-arg VERSION=1.15 --tag {{ github.repository }}:$DOCKER_IMAGE_VERSION
+        docker build . --build-arg VERSION=1.15 --tag ${{ github.repository }}:$DOCKER_IMAGE_VERSION
