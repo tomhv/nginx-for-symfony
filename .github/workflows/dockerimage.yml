@@ -18,3 +18,5 @@ jobs:
         DOCKER_IMAGE_VERSION=`echo ${GITHUB_REF/refs\/tags\//} | cut -b 2-`
         DOCKER_IMAGE_TAG=${{ github.repository }}:$DOCKER_IMAGE_VERSION
         docker build . --build-arg VERSION=1.15 --tag $DOCKER_IMAGE_TAG
+        docker login -u tomhv -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push DOCKER_IMAGE_TAG
